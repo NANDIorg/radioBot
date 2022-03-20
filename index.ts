@@ -22,4 +22,4 @@ client.on('ready', async () => {
     
 })
 
-client.login("NjU3MTI4MjcxNDcyNzU0NzE4.XfssZA.ruWTzskKdcVdDoBNQmZ2bUjY0yg")
+client.login(process.env.TOKEN)
