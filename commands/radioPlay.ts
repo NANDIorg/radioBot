@@ -19,7 +19,6 @@ export default {
     description : "Включить радио",
     aliases : ['rp'],
     slash : true,
-    testOnly : true,
     options : [
         {
             name : "voicechannle",
