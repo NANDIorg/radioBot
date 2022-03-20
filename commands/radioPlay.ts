@@ -7,7 +7,7 @@ const radioFile = JSON.parse(fs.readFileSync(path.join(__dirname,"radio.json"),"
 
 
 export default {
-    category : "test",
+    category : "Exemple",
     description : "test",
     slash : true,
     options : [
