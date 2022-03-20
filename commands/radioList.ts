@@ -13,7 +13,6 @@ for (const el in radioFile) {
 const embed = {
     color : 0x0099ff,
     title : "Список радио",
-    description : "Список радио",
     fields : new Array
 }
 radioArray.forEach(el => {

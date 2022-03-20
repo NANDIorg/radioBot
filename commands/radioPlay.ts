@@ -1,15 +1,25 @@
 import { ICommand } from "wokcommands"
 import Discord from "discord.js"
-import voiceDiscord, { createAudioPlayer, createAudioResource, joinVoiceChannel } from "@discordjs/voice"
+import { AudioPlayerStatus, createAudioPlayer, createAudioResource, joinVoiceChannel } from "@discordjs/voice"
 import fs from "fs"
 import path from "path"
 const radioFile = JSON.parse(fs.readFileSync(path.join(__dirname,"radio.json"),"utf-8"))
+const radioArray = new Array
 
+for (const el in radioFile) {
+    let radio = radioFile[el]
+    radioArray.push({
+        name : radio.nameRadio,
+        value : radio.name
+    })
+}
 
 export default {
     category : "Exemple",
-    description : "test",
+    description : "Включить радио",
+    aliases : ['rp'],
     slash : true,
+    testOnly : true,
     options : [
         {
             name : "voicechannle",
@@ -20,17 +30,30 @@ export default {
         {
             name : "radioname",
             description : "Выбор радио (можно посмотреть через /radiolist)",
+            type : "STRING",
             required : true,
-            type : "STRING", 
+            choices : radioArray
         }
     ],
 
+
     callback : async ({ interaction, member, channel }) => {
         if (interaction) {
+            await interaction.deferReply({
+                ephemeral : true
+            })
             // console.log(interaction.options.getChannel('voicechannle'));
             const radio = interaction.options.getString("radioname")
+            const channel = interaction.options.getChannel('voicechannle')
+            if(channel?.type !== "GUILD_VOICE") {
+                interaction.editReply({
+                    content : `Выбери голосовой канал`
+                })
+                return
+            }
+            
             const voiceChannel = interaction.options.getChannel('voicechannle')?.id
-            console.log(radio);
+            // console.log(radioFile[radio!]);
             
             if (!voiceChannel) return
             const connection = joinVoiceChannel({
@@ -43,40 +66,14 @@ export default {
             connection?.subscribe(player)
             const recource = createAudioResource(radioFile[radio!].url)
             player.play(recource)
-            
-
-            // player.on(voiceDiscord.AudioPlayerStatus.Idle, ()=>{
-            //     connection?.destroy()
-            // })
-
-            await interaction.deferReply({
-                ephemeral : true
+        
+            player.on(AudioPlayerStatus.Idle, ()=>{
+                connection?.destroy()
             })
             
             interaction.editReply({
-                content : `ыыы я тупой`
+                content : `Ты включил ${radioFile[radio!].nameRadio}`
             })
-
-            // if (voiceChannel) {
-            //     interaction.editReply({
-            //         content : `${voiceChannel}`
-            //     })
-            // } else {
-            //     interaction.editReply({
-            //         content : `ыыы я тупой`
-            //     })
-            // }
-            
-
-            // if (voiceChannel) {
-            //     const connection = getVoiceConnection(voiceChannel);
-            //     await new Promise((resolve)=>{setTimeout(resolve,5000)})
-            //     if (connection) {
-            //         connection.destroy()
-            //         console.log('Дисконект');
-                    
-            //     }
-            // }
             
         }
     }
