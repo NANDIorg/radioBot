@@ -22,5 +22,18 @@
         "nameRadio" : "Phonk",
         "description" : "Радио фонка",
         "url" : "http://pub0302.101.ru:8000/stream/personal/aacp/64/865080?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJrZXkiOiI2Yjk2MzRjYTQ5OTYyZDA0MWUzOTNkNDQ2YTM2YzE5NSIsIklQIjoiNDYuMTgxLjIwMS4xNzIiLCJVQSI6Ik1vemlsbGFcLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0OyBydjo5OC4wKSBHZWNrb1wvMjAxMDAxMDEgRmlyZWZveFwvOTguMCIsInVpZF9jaGFubmVsIjoiODY1MDgwIiwidHlwZV9jaGFubmVsIjoicGVyc29uYWwiLCJ0eXBlRGV2aWNlIjoiUEMiLCJCcm93c2VyIjoiRmlyZWZveCIsIkJyb3dzZXJWZXJzaW9uIjoiOTguMCIsIlN5c3RlbSI6IldpbmRvd3MgMTAiLCJleHAiOjE2NDc4MjUzODZ9.5IVtL8Ro-80UB6ETNRroRQ_HUm83Q_NExN7rwtJ-OAs" 
+    },
+    "LoveKPOP" : {
+        "name" : "LoveKPOP",
+        "nameRadio" : "Love KPOP",
+        "description" : "Радио КПОП",
+        "url" : "http://pub0302.101.ru:8000/stream/personal/aacp/64/865080?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJrZXkiOiI2Yjk2MzRjYTQ5OTYyZDA0MWUzOTNkNDQ2YTM2YzE5NSIsIklQIjoiNDYuMTgxLjIwMS4xNzIiLCJVQSI6Ik1vemlsbGFcLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0OyBydjo5OC4wKSBHZWNrb1wvMjAxMDAxMDEgRmlyZWZveFwvOTguMCIsInVpZF9jaGFubmVsIjoiODY1MDgwIiwidHlwZV9jaGFubmVsIjoicGVyc29uYWwiLCJ0eXBlRGV2aWNlIjoiUEMiLCJCcm93c2VyIjoiRmlyZWZveCIsIkJyb3dzZXJWZXJzaW9uIjoiOTguMCIsIlN5c3RlbSI6IldpbmRvd3MgMTAiLCJleHAiOjE2NDc4MjUzODZ9.5IVtL8Ro-80UB6ETNRroRQ_HUm83Q_NExN7rwtJ-OAs" 
+    },
+    "LoveRadio" : {
+        "name" : "LoveRadio",
+        "nameRadio" : "Love Radio",
+        "description" : "Радио Love Radio",
+        "nowPlay" : "https://www.loveradio.ru/backend/api/v1/love-radio/player/online?filter[musicStreamIds][]=28",
+        "url" : "http://pub0302.101.ru:8000/stream/personal/aacp/64/865080?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJrZXkiOiI2Yjk2MzRjYTQ5OTYyZDA0MWUzOTNkNDQ2YTM2YzE5NSIsIklQIjoiNDYuMTgxLjIwMS4xNzIiLCJVQSI6Ik1vemlsbGFcLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0OyBydjo5OC4wKSBHZWNrb1wvMjAxMDAxMDEgRmlyZWZveFwvOTguMCIsInVpZF9jaGFubmVsIjoiODY1MDgwIiwidHlwZV9jaGFubmVsIjoicGVyc29uYWwiLCJ0eXBlRGV2aWNlIjoiUEMiLCJCcm93c2VyIjoiRmlyZWZveCIsIkJyb3dzZXJWZXJzaW9uIjoiOTguMCIsIlN5c3RlbSI6IldpbmRvd3MgMTAiLCJleHAiOjE2NDc4MjUzODZ9.5IVtL8Ro-80UB6ETNRroRQ_HUm83Q_NExN7rwtJ-OAs" 
     }
 }

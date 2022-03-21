@@ -24,10 +24,10 @@ const embed = {
 
 export default {
     category : "Exemple",
-    description : "Включит радио",
+    description : "Тестовая Команда",
     aliases : ['rp'],
     slash : true,
-    // testOnly : true,
+    testOnly : true,
     options : [
         {
             name : "voicechannle",
