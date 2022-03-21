@@ -10,6 +10,7 @@ const radioArray = new Array
 
 for (const el in radioFile) {
     let radio = radioFile[el]
+    if (!radio.ready) continue
     radioArray.push({
         name : radio.nameRadio,
         value : radio.name

@@ -10,6 +10,7 @@ const radioArray = new Array
 
 for (const el in radioFile) {
     let radio = radioFile[el]
+    if (!radio.ready) continue
     radioArray.push({
         name : radio.nameRadio,
         value : radio.name
@@ -98,7 +99,9 @@ export default {
             }
 
             player.on(AudioPlayerStatus.Idle, ()=>{
-                clearInterval(interval)
+                if (interval) {
+                    clearInterval(interval)
+                }
             })
 
             player.on("error",(error) => {
