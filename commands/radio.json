@@ -5,12 +5,6 @@
         "description" : "Радио Европа+",
         "url" : "http://ep256.hostingradio.ru:8052/europaplus256.mp3"
     },
-    "LoveIsRadio" : {
-        "name" : "LoveIsRadio",
-        "nameRadio" : "Love Is Radio",
-        "description" : "Радио Love Is Radio",
-        "url" : "http://listen1.myradio24.com:9000/3355"
-    },
     "ТНТMusicRadio" : {
         "name" : "ТНТMusicRadio",
         "nameRadio" : "ТНТ Music Radio",
@@ -34,6 +28,6 @@
         "nameRadio" : "Love Radio",
         "description" : "Радио Love Radio",
         "nowPlay" : "https://www.loveradio.ru/backend/api/v1/love-radio/player/online?filter[musicStreamIds][]=28",
-        "url" : "http://pub0302.101.ru:8000/stream/personal/aacp/64/865080?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJrZXkiOiI2Yjk2MzRjYTQ5OTYyZDA0MWUzOTNkNDQ2YTM2YzE5NSIsIklQIjoiNDYuMTgxLjIwMS4xNzIiLCJVQSI6Ik1vemlsbGFcLzUuMCAoV2luZG93cyBOVCAxMC4wOyBXaW42NDsgeDY0OyBydjo5OC4wKSBHZWNrb1wvMjAxMDAxMDEgRmlyZWZveFwvOTguMCIsInVpZF9jaGFubmVsIjoiODY1MDgwIiwidHlwZV9jaGFubmVsIjoicGVyc29uYWwiLCJ0eXBlRGV2aWNlIjoiUEMiLCJCcm93c2VyIjoiRmlyZWZveCIsIkJyb3dzZXJWZXJzaW9uIjoiOTguMCIsIlN5c3RlbSI6IldpbmRvd3MgMTAiLCJleHAiOjE2NDc4MjUzODZ9.5IVtL8Ro-80UB6ETNRroRQ_HUm83Q_NExN7rwtJ-OAs" 
+        "url" : "https://stream2.n340.com/12_love_64_reg_44?type=aac&UID=0615BDAFB440349A36C5639C4AE5D6F5" 
     }
 }
