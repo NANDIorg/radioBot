@@ -86,6 +86,7 @@ export default {
                 var interval = setInterval(()=>{
                     axios.get(radioFile[radio!].nowPlay)
                         .then((res: any) => {
+                            console.log(res.data.data.uid)
                             if (res.data.data.song.title) {
                                 embed.description = `Сейчас играет : ${res.data.data.song.title}`
                                 interaction.editReply({
