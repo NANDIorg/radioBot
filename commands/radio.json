@@ -28,6 +28,6 @@
         "nameRadio" : "Love Radio",
         "description" : "Радио Love Radio",
         "nowPlay" : "https://www.loveradio.ru/backend/api/v1/love-radio/player/online?filter[musicStreamIds][]=28",
-        "url" : "https://stream2.n340.com/12_love_64_reg_44?type=aac&UID=0615BDAFB440349A36C5639C4AE5D6F5" 
+        "url" : "https://stream2.n340.com/12_love_64_reg_44?type=aac&UID=86CA3D9121FC8E06A2F5177A8A6FE1AD" 
     }
 }
