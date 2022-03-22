@@ -97,7 +97,7 @@ export default {
                 var interval = setInterval(()=>{
                     axios.get(radioFile[radio!].nowPlay)
                         .then((res: any) => {
-                            if (res.data.data.song.title) {
+                            if (res.data.data.song.title && res.data.data.song.title != null) {
                                 embed.description = `Сейчас играет : ${res.data.data.song.title}`
                                 interaction.editReply({
                                     embeds : [embed]
