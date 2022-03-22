@@ -48,6 +48,9 @@ export default {
 
     callback : async ({ interaction, member, channel }) => {
         if (interaction) {
+            if (interval!) {                
+                clearInterval(interval)
+            }
             await interaction.deferReply({
                 // ephemeral : true
                 
@@ -84,7 +87,7 @@ export default {
             var recource = createAudioResource(urlRadio)
             player.play(recource)
 
-            embed.description = `Ты включил ${radioFile[radio!].nameRadio}`
+            embed.description = `Включена радио станция : ${radioFile[radio!].nameRadio}`
 
             interaction.editReply({
                 embeds : [embed]
@@ -107,14 +110,23 @@ export default {
 
             player.on(AudioPlayerStatus.Idle, ()=>{
                 clearInterval(interval)
+                interaction.deleteReply()
             })
 
             player.on("error",(error) => {
                 console.log(`Бот остановился, потому что ${error}`);
                 connection.destroy()
+                interaction.deleteReply()
             })
             
-
+            connection.on('stateChange',(e)=>{
+                console.log(e.status)
+                if (e.status == "ready") {
+                    interaction.deleteReply()
+                    clearInterval(interval)
+                    connection.destroy()
+                }
+            })
             
         }
     }
