@@ -104,7 +104,7 @@ export default {
                                 console.log(res.data.data.song.title)
                             }
                         })
-                },5000)
+                },10000)
             }
 
             player.on(AudioPlayerStatus.Idle, ()=>{
