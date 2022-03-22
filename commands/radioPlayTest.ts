@@ -4,7 +4,7 @@ import { AudioPlayerStatus, createAudioPlayer, createAudioResource, joinVoiceCha
 import fs from "fs"
 import path from "path"
 const axios = require('axios').default;
-
+import radioURL from "../radioType/index"
 const radioFile = JSON.parse(fs.readFileSync(path.join(__dirname,"radio.json"),"utf-8"))
 const radioArray = new Array
 
@@ -74,7 +74,14 @@ export default {
 
             const player = createAudioPlayer()
             connection?.subscribe(player)
-            const recource = createAudioResource(radioFile[radio!].url)
+            var urlRadio = ""
+            if (!radioFile[radio!].radioType) {
+                urlRadio = radioFile[radio!].url
+            } else {
+                urlRadio = await radioURL.radioType(radioFile[radio!].radioType,radioFile[radio!].url,radioFile[radio!].nowPlay)
+                // var recource = createAudioResource(radioFile[radio!].url)
+            }
+            var recource = createAudioResource(urlRadio)
             player.play(recource)
 
             embed.description = `Ты включил ${radioFile[radio!].nameRadio}`
@@ -87,7 +94,6 @@ export default {
                 var interval = setInterval(()=>{
                     axios.get(radioFile[radio!].nowPlay)
                         .then((res: any) => {
-                            console.log(res.data.data.uid)
                             if (res.data.data.song.title) {
                                 embed.description = `Сейчас играет : ${res.data.data.song.title}`
                                 interaction.editReply({
