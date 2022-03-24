@@ -1,6 +1,6 @@
 import { ICommand } from "wokcommands"
 import Discord from "discord.js"
-import { AudioPlayerStatus, createAudioPlayer, createAudioResource, joinVoiceChannel } from "@discordjs/voice"
+import { AudioPlayerStatus, VoiceConnectionStatus, createAudioPlayer, createAudioResource, joinVoiceChannel } from "@discordjs/voice"
 import fs from "fs"
 import path from "path"
 const axios = require('axios').default;
@@ -143,13 +143,11 @@ export default {
                 interaction.channel?.lastMessage?.delete()
             })
             
-            connection.on('stateChange',(e)=>{
+            connection.on(VoiceConnectionStatus.Disconnected,(e)=>{
                 console.log(e.status)
-                if (e.status == "ready") {
-                    interaction.channel?.lastMessage?.delete()
-                    clearInterval(interval)
-                    connection.destroy()
-                }
+                interaction.channel?.lastMessage?.delete()
+                clearInterval(interval)
+                connection.destroy()
             })
         }
     }
