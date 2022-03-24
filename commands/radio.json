@@ -27,7 +27,8 @@
         "description" : "Радио КПОП",
         "nowPlay" : "https://www.loveradio.ru/backend/api/v1/love-radio/player/online?filter[musicStreamIds][]=10",
         "url" : "https://stream2.n340.com/11_kpop_28?type=aac&UID=", 
-        "radioType" : "LoveRadio"
+        "radioType" : "LoveRadio",
+        "picture" : "https://www.loveradio.ru/backend"
     },
     "LoveRadio" : {
         "name" : "LoveRadio",
@@ -36,6 +37,7 @@
         "nowPlay" : "https://www.loveradio.ru/backend/api/v1/love-radio/player/online?filter[musicStreamIds][]=28",
         "url" : "https://stream2.n340.com/12_love_64_reg_44?type=aac&UID=",
         "ready" : true,
-        "radioType" : "LoveRadio"
+        "radioType" : "LoveRadio",
+        "picture" : "https://www.loveradio.ru/backend"
     }
 }

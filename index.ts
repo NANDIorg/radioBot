@@ -8,14 +8,16 @@ const client = new DiscordJS.Client({
     intents : [
         Intents.FLAGS.GUILDS,
         Intents.FLAGS.GUILD_MESSAGES,
-        Intents.FLAGS.GUILD_VOICE_STATES
+        Intents.FLAGS.GUILD_VOICE_STATES,
+        Intents.FLAGS.GUILD_PRESENCES,
     ]
 })
 
 client.on('ready', async () => {
     console.log(`BOT ${client.user?.tag} Has now been launched!! 🚀 Coded by 365 ɢᴀᴍɪɴɢ ɴ ᴍᴏʀᴇ_2.0#0002`)
     new WOKCommands(client, {
-        commandDir: path.join(__dirname, 'commands'),
+        commandsDir: path.join(__dirname, 'commands'),
+        featuresDir : path.join(__dirname, 'features'),
         typeScript : true,
         testServers : ['955012890451144714']
     })

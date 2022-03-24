@@ -17,16 +17,23 @@ for (const el in radioFile) {
     })
 }
 
-const embed = {
+let embed = {
     color : 0x0099ff,
     title : "Сейчас играет | Play now",
     description: '',
+    thumbnail : {}
+}
+
+let embed2 = {
+    color : 0x0099ff,
+    title : "Сейчас играет | Play now",
+    description: '',
+    thumbnail : {}
 }
 
 export default {
     category : "Exemple",
     description : "Включить радио",
-    aliases : ['rp'],
     slash : true,
     options : [
         {
@@ -45,20 +52,21 @@ export default {
     ],
 
 
-    callback : async ({ interaction, member, channel }) => {
+    callback : async ({ message, interaction, channel }) => {
+        
         if (interaction) {
+            interaction.reply({
+                content : "Включил",
+                ephemeral : true
+            })
             if (interval!) {                
                 clearInterval(interval)
             }
-            await interaction.deferReply({
-                // ephemeral : true
-                
-            })
             // console.log(interaction.options.getChannel('voicechannle'));
             const radio = interaction.options.getString("radioname")
             const channel = interaction.options.getChannel('voicechannle')
             if(channel?.type !== "GUILD_VOICE") {
-                interaction.editReply({
+                interaction.channel?.send({
                     content : `Выбери голосовой канал`
                 })
                 return
@@ -88,49 +96,61 @@ export default {
 
             embed.description = `Включена радио станция : ${radioFile[radio!].nameRadio}`
 
-            interaction.editReply({
+            interaction.channel?.send({
                 embeds : [embed]
             })
 
             if (radioFile[radio!].nowPlay) {
-                var interval = setInterval(()=>{
-                    axios.get(radioFile[radio!].nowPlay)
-                        .then((res: any) => {
-                            try {
-                                if (res.data.data.song.title) {
-                                    embed.description = `Сейчас играет : ${res.data.data.song.title}`
-                                    interaction.editReply({
-                                        embeds : [embed]
-                                    })
-                                    console.log(res.data.data.song.title)
-                                }
-                            } catch (e) {
-                                console.log(e)
+                var interval = setTimeout(async function tick() {
+                    const res = await axios.get(radioFile[radio!].nowPlay)
+                    try {
+                        if (res.data.data.song == null) throw "Название песни обнавляется"
+                        if (res.data.data.song.title ) {
+                            embed2.description = `Сейчас играет : ${res.data.data.song.title}`
+                            embed2.thumbnail = radioURL.radioPicture(radioFile[radio!].radioType,res,radioFile[radio!].picture)
+                            
+                            if (embed2.description !== embed.description) {
+                                console.log("Поменял");
+                                Object.assign(embed,embed2)
+                            } else {
+                                throw "Ничего не изменилось"
                             }
-                        })
+                            try {
+                                await interaction.channel?.lastMessage?.delete()
+                                await interaction.channel?.send({
+                                    embeds : [embed]
+                                })  
+                            } catch (e) {
+                                console.log(e);
+                            }
+                        }
+                    } catch (e) {
+                        console.log(e)
+                    }
+                    interval = setTimeout(tick,10000)
                 },10000)
             }
 
             player.on(AudioPlayerStatus.Idle, ()=>{
-                clearInterval(interval)
-                interaction.deleteReply()
+                clearTimeout(interval)
+                interaction.channel?.lastMessage?.delete()
+                connection.destroy()
             })
 
             player.on("error",(error) => {
                 console.log(`Бот остановился, потому что ${error}`);
                 connection.destroy()
-                interaction.deleteReply()
+                interaction.channel?.lastMessage?.delete()
             })
             
             connection.on('stateChange',(e)=>{
                 console.log(e.status)
                 if (e.status == "ready") {
-                    interaction.deleteReply()
+                    interaction.channel?.lastMessage?.delete()
                     clearInterval(interval)
                     connection.destroy()
                 }
             })
-            
         }
     }
 } as ICommand

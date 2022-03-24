@@ -9,5 +9,16 @@ export default {
                 break
         }
         return urlRadio
+    },
+    radioPicture (type:string,nowUrl:string,urlPicture:string) {
+        var urlRadio = {
+            url : ""
+        }
+        switch (type) {
+            case "LoveRadio":
+                urlRadio.url = radioTypeLovaRadio.radioPicture(nowUrl,urlPicture)
+                break
+        }
+        return urlRadio 
     }
 }
