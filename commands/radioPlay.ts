@@ -107,9 +107,8 @@ export default {
                         if (res.data.data.song == null) throw "Название песни обнавляется"
                         if (res.data.data.song.title ) {
                             embed2.description = `Сейчас играет : ${res.data.data.song.title}`
-                            embed2.thumbnail = radioURL.radioPicture(radioFile[radio!].radioType,res,radioFile[radio!].picture)
-                            
                             if (embed2.description !== embed.description) {
+                                embed2.thumbnail = radioURL.radioPicture(radioFile[radio!].radioType,res,radioFile[radio!].picture)
                                 console.log("Поменял");
                                 Object.assign(embed,embed2)
                             } else {

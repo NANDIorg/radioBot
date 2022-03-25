@@ -39,5 +39,95 @@
         "ready" : true,
         "radioType" : "LoveRadio",
         "picture" : "https://www.loveradio.ru/backend"
+    },
+    "LoveGold" : {
+        "name" : "LoveGold",
+        "nameRadio" : "Love Radio",
+        "description" : "Радио Love Radio",
+        "nowPlay" : "https://www.loveradio.ru/backend/api/v1/love-radio/player/online?filter[musicStreamIds][]=24",
+        "url" : "https://stream2.n340.com/3_gold_24?type=aac&UID=",
+        "ready" : false,
+        "radioType" : "LoveRadio",
+        "picture" : "https://www.loveradio.ru/backend"
+    },
+    "LoveDance" : {
+        "name" : "LoveDance",
+        "nameRadio" : "Love Radio",
+        "description" : "Радио Love Radio",
+        "nowPlay" : "https://www.loveradio.ru/backend/api/v1/love-radio/player/online?filter[musicStreamIds][]=24",
+        "url" : "https://stream2.n340.com/7_dance_24?type=aac&UID=",
+        "ready" : false,
+        "radioType" : "LoveRadio",
+        "picture" : "https://www.loveradio.ru/backend"
+    },
+    "LoveRussian" : {
+        "name" : "LoveRussian",
+        "nameRadio" : "Love Radio",
+        "description" : "Радио Love Radio",
+        "nowPlay" : "https://www.loveradio.ru/backend/api/v1/love-radio/player/online?filter[musicStreamIds][]=28",
+        "url" : "https://stream2.n340.com/8_russian_24?type=aac&UID=",
+        "ready" : false,
+        "radioType" : "LoveRadio",
+        "picture" : "https://www.loveradio.ru/backend"
+    },
+    "LoveChill" : {
+        "name" : "LoveChill",
+        "nameRadio" : "Love Radio",
+        "description" : "Радио Love Radio",
+        "nowPlay" : "https://www.loveradio.ru/backend/api/v1/love-radio/player/online?filter[musicStreamIds][]=28",
+        "url" : "https://stream2.n340.com/12_love_64_reg_44?type=aac&UID=",
+        "ready" : false,
+        "radioType" : "LoveRadio",
+        "picture" : "https://www.loveradio.ru/backend"
+    },
+    "LoveRNB" : {
+        "name" : "LoveRNB",
+        "nameRadio" : "Love Radio",
+        "description" : "Радио Love Radio",
+        "nowPlay" : "https://www.loveradio.ru/backend/api/v1/love-radio/player/online?filter[musicStreamIds][]=28",
+        "url" : "https://stream2.n340.com/12_love_64_reg_44?type=aac&UID=",
+        "ready" : false,
+        "radioType" : "LoveRadio",
+        "picture" : "https://www.loveradio.ru/backend"
+    },
+    "LoveTOP40" : {
+        "name" : "LoveTOP40",
+        "nameRadio" : "Love Radio",
+        "description" : "Радио Love Radio",
+        "nowPlay" : "https://www.loveradio.ru/backend/api/v1/love-radio/player/online?filter[musicStreamIds][]=28",
+        "url" : "https://stream2.n340.com/12_love_64_reg_44?type=aac&UID=",
+        "ready" : false,
+        "radioType" : "LoveRadio",
+        "picture" : "https://www.loveradio.ru/backend"
+    },
+    "LoveAlternative" : {
+        "name" : "LoveAlternative",
+        "nameRadio" : "Love Radio",
+        "description" : "Радио Love Radio",
+        "nowPlay" : "https://www.loveradio.ru/backend/api/v1/love-radio/player/online?filter[musicStreamIds][]=28",
+        "url" : "https://stream2.n340.com/12_love_64_reg_44?type=aac&UID=",
+        "ready" : false,
+        "radioType" : "LoveRadio",
+        "picture" : "https://www.loveradio.ru/backend"
+    },
+    "LovePover" : {
+        "name" : "LovePover",
+        "nameRadio" : "Love Radio",
+        "description" : "Радио Love Radio",
+        "nowPlay" : "https://www.loveradio.ru/backend/api/v1/love-radio/player/online?filter[musicStreamIds][]=28",
+        "url" : "https://stream2.n340.com/12_love_64_reg_44?type=aac&UID=",
+        "ready" : false,
+        "radioType" : "LoveRadio",
+        "picture" : "https://www.loveradio.ru/backend"
+    },
+    "LoveSummer" : {
+        "name" : "LoveSummer",
+        "nameRadio" : "Love Radio",
+        "description" : "Радио Love Radio",
+        "nowPlay" : "https://www.loveradio.ru/backend/api/v1/love-radio/player/online?filter[musicStreamIds][]=28",
+        "url" : "https://stream2.n340.com/12_love_64_reg_44?type=aac&UID=",
+        "ready" : false,
+        "radioType" : "LoveRadio",
+        "picture" : "https://www.loveradio.ru/backend"
     }
 }
