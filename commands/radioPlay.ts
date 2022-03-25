@@ -140,6 +140,7 @@ export default {
                 console.log(`Бот остановился, потому что ${error}`);
                 connection.destroy()
                 interaction.channel?.lastMessage?.delete()
+                clearTimeout(interval)
             })
             
             connection.on(VoiceConnectionStatus.Disconnected,(e)=>{
