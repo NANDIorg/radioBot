@@ -7,16 +7,18 @@ const axios = require('axios').default;
 import radioURL from "../radioType/index"
 import { ChannelTypes } from "discord.js/typings/enums"
 const radioFile = JSON.parse(fs.readFileSync(path.join(__dirname,"radio.json"),"utf-8"))
-const radioArray = new Array
 
-
-for (const el in radioFile) {
-    let radio = radioFile[el]
-    if (!radio.ready) continue
-    radioArray.push({
-        name : radio.nameRadio,
-        value : radio.name
-    })
+function radioArrayFunc () {
+    const radioArray = new Array
+    for (const el in radioFile) {
+        let radio = radioFile[el]
+        if (!radio.ready) continue
+        radioArray.push({
+            name : radio.nameRadio,
+            value : radio.name
+        })
+    }
+    return radioArray
 }
 
 
@@ -51,7 +53,7 @@ export default {
             description : "Выбор радио (можно посмотреть через /radiolist)",
             type : "STRING",
             required : true,
-            choices : radioArray
+            choices : radioArrayFunc()
         }
     ],
 
@@ -116,7 +118,15 @@ export default {
                             throw "Ничего не изменилось"
                         }
                         try {
-                            await interaction.channel?.lastMessage?.delete()
+                            const messagesBot = await interaction.channel?.messages.fetch()
+                            messagesBot?.map(el => {
+                                // if (el.author.id == "906518952908324934") {
+                                //     el.delete()
+                                // }
+                                if (el.author.id == "657128271472754718") {
+                                    el.delete()
+                                }
+                            })
                             await interaction.channel?.send({
                                 embeds : [embed]
                             })  
