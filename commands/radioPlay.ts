@@ -118,15 +118,17 @@ export default {
                             throw "Ничего не изменилось"
                         }
                         try {
-                            const messagesBot = await interaction.channel?.messages.fetch()
+                            const messagesBot = await interaction.channel?.messages.fetch({limit : 10})
                             messagesBot?.map(el => {
-                                // if (el.author.id == "906518952908324934") {
-                                //     el.delete()
-                                // }
+                                if (el.author.id == "906518952908324934") {
+                                    el.delete()
+                                }
                                 if (el.author.id == "657128271472754718") {
                                     el.delete()
                                 }
                             })
+                            console.log(messagesBot);
+                            
                             await interaction.channel?.send({
                                 embeds : [embed]
                             })  

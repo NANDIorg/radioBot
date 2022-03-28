@@ -27,7 +27,7 @@ client.on('ready', async () => {
     // const { slashCommands } = wok
     // const commands = await slashCommands.get()
     // commands.map((i:any)=>{
-    //     console.log(i.options[1].choices);
+    //     console.log(i.options[1]);
     // })
 
 })
