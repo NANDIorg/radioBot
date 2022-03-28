@@ -23,7 +23,12 @@ export default {
     },
 
     radioTitle (post:any) {
-        var title = ""
+        var title = `Сейчас играет : ${post.data.data.song.title}`
         return title
+    },
+
+    radioCheckUpdate(nowPlay:any) {
+        if (nowPlay.data.data.song == null) return true
+        return false   
     }
 }

@@ -106,25 +106,22 @@ export default {
                 var interval = setTimeout(async function tick() {
                     const res = await axios.get(radioFile[radio!].nowPlay)
                     try {
-                        if (res.data.data.song == null) throw "Название песни обнавляется"
-                        if (res.data.data.song.title ) {
-                            // embed2.description = `Сейчас играет : ${res.data.data.song.title}`
-                            embed2.description = radioURL.radioName(radioFile[radio!].radioType,res)
-                            if (embed2.description !== embed.description) {
-                                embed2.thumbnail = radioURL.radioPicture(radioFile[radio!].radioType,res,radioFile[radio!].picture)
-                                console.log("Поменял");
-                                Object.assign(embed,embed2)
-                            } else {
-                                throw "Ничего не изменилось"
-                            }
-                            try {
-                                await interaction.channel?.lastMessage?.delete()
-                                await interaction.channel?.send({
-                                    embeds : [embed]
-                                })  
-                            } catch (e) {
-                                console.log(e);
-                            }
+                        if (radioURL.radioCheckUpdate(radioFile[radio!].radioType,res)) throw "Название песни обнавляется"
+                        embed2.description = radioURL.radioName(radioFile[radio!].radioType,res)
+                        if (embed2.description !== embed.description) {
+                            embed2.thumbnail = radioURL.radioPicture(radioFile[radio!].radioType,res,radioFile[radio!].picture)
+                            console.log("Поменял");
+                            Object.assign(embed,embed2)
+                        } else {
+                            throw "Ничего не изменилось"
+                        }
+                        try {
+                            await interaction.channel?.lastMessage?.delete()
+                            await interaction.channel?.send({
+                                embeds : [embed]
+                            })  
+                        } catch (e) {
+                            console.log(e);
                         }
                     } catch (e) {
                         console.log(e)

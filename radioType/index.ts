@@ -33,5 +33,17 @@ export default {
                 break
         }
         return title 
+    },
+    radioCheckUpdate(type:string,nowUrl:string) {
+        var bool = true
+        switch (type) {
+            case "LoveRadio":
+                bool = radioTypeLovaRadio.radioCheckUpdate(nowUrl)
+                break
+            case "RemixRadio":
+                bool = radioTypeRadioRemix.radioTitle(nowUrl)
+                break
+        }
+        return bool 
     }
 }
