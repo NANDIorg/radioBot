@@ -1,4 +1,5 @@
 import radioTypeLovaRadio from "./LoveRadio"
+import radioTypeRadioRemix from "./RadioRemix"
 
 export default {
     async radioType (type:string, url:string, nowUrl:string) {
@@ -20,5 +21,17 @@ export default {
                 break
         }
         return urlRadio 
+    },
+    radioName (type: string,nowUrl:string) {
+        var title = ""
+        switch (type) {
+            case "LoveRadio":
+                title = radioTypeLovaRadio.radioTitle(nowUrl)
+                break
+            case "RemixRadio":
+                title = radioTypeRadioRemix.radioTitle(nowUrl)
+                break
+        }
+        return title 
     }
 }

@@ -20,5 +20,10 @@ export default {
             url = "https://www.loveradio.ru/backend/uploads/media/loveradio/0019/28/08b9505066130cef1b393ff9aa6fa6fbc24f274c.png"
         }
         return url
+    },
+
+    radioTitle (post:any) {
+        var title = ""
+        return title
     }
 }

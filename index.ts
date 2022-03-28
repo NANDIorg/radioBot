@@ -14,14 +14,22 @@ const client = new DiscordJS.Client({
 })
 
 client.on('ready', async () => {
+    
     console.log(`BOT ${client.user?.tag} Has now been launched!! 🚀 Coded by 365 ɢᴀᴍɪɴɢ ɴ ᴍᴏʀᴇ_2.0#0002`)
-    new WOKCommands(client, {
+    const wok = new WOKCommands(client, {
         commandsDir: path.join(__dirname, 'commands'),
         featuresDir : path.join(__dirname, 'features'),
         typeScript : true,
-        testServers : ['955012890451144714']
+        testServers : ['955012890451144714'],
+        botOwners : "307491614358634496"
     })
-    
+
+    // const { slashCommands } = wok
+    // const commands = await slashCommands.get()
+    // commands.map((i:any)=>{
+    //     console.log(i.options[1].choices);
+    // })
+
 })
 
 client.login(process.env.TOKEN)

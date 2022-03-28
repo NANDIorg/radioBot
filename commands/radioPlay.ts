@@ -5,8 +5,10 @@ import fs from "fs"
 import path from "path"
 const axios = require('axios').default;
 import radioURL from "../radioType/index"
+import { ChannelTypes } from "discord.js/typings/enums"
 const radioFile = JSON.parse(fs.readFileSync(path.join(__dirname,"radio.json"),"utf-8"))
 const radioArray = new Array
+
 
 for (const el in radioFile) {
     let radio = radioFile[el]
@@ -16,6 +18,7 @@ for (const el in radioFile) {
         value : radio.name
     })
 }
+
 
 let embed = {
     color : 0x0099ff,
@@ -40,7 +43,8 @@ export default {
             name : "voicechannle",
             description : "Войс канал для подключения",
             required : true,
-            type : "CHANNEL", 
+            type : "CHANNEL",
+            channel_types : [ChannelTypes.GUILD_VOICE]
         },
         {
             name : "radioname",
@@ -51,9 +55,7 @@ export default {
         }
     ],
 
-
     callback : async ({ message, interaction, channel }) => {
-        
         if (interaction) {
             interaction.reply({
                 content : "Включил",
@@ -106,7 +108,8 @@ export default {
                     try {
                         if (res.data.data.song == null) throw "Название песни обнавляется"
                         if (res.data.data.song.title ) {
-                            embed2.description = `Сейчас играет : ${res.data.data.song.title}`
+                            // embed2.description = `Сейчас играет : ${res.data.data.song.title}`
+                            embed2.description = radioURL.radioName(radioFile[radio!].radioType,res)
                             if (embed2.description !== embed.description) {
                                 embed2.thumbnail = radioURL.radioPicture(radioFile[radio!].radioType,res,radioFile[radio!].picture)
                                 console.log("Поменял");

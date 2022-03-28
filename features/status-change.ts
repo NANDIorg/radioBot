@@ -14,7 +14,7 @@ for (const el in radioFile) {
 export default (client : Client) => {
 
     let counter = 0
-
+    
     const updateStatus = () => {
         client.user?.setActivity(radioArray[counter], { type: 'LISTENING' });
 
@@ -28,5 +28,5 @@ export default (client : Client) => {
 }
 
 // export const config = {
-
+    
 // }
