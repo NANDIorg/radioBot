@@ -142,25 +142,25 @@ export default {
                 },10000)
             }
 
-            player.on(AudioPlayerStatus.Idle, ()=>{
-                clearTimeout(interval)
-                interaction.channel?.lastMessage?.delete()
-                connection.destroy()
-            })
+            // player.on(AudioPlayerStatus.Idle, ()=>{
+            //     clearTimeout(interval)
+            //     interaction.channel?.lastMessage?.delete()
+            //     connection.destroy()
+            // })
 
-            player.on("error",(error) => {
-                console.log(`Бот остановился, потому что ${error}`);
-                connection.destroy()
-                interaction.channel?.lastMessage?.delete()
-                clearTimeout(interval)
-            })
+            // player.on("error",(error) => {
+            //     console.log(`Бот остановился, потому что ${error}`);
+            //     connection.destroy()
+            //     interaction.channel?.lastMessage?.delete()
+            //     clearTimeout(interval)
+            // })
             
-            connection.on(VoiceConnectionStatus.Disconnected,(e)=>{
-                console.log(e.status)
-                interaction.channel?.lastMessage?.delete()
-                clearInterval(interval)
-                connection.destroy()
-            })
+            // connection.on(VoiceConnectionStatus.Disconnected,(e)=>{
+            //     console.log(e.status)
+            //     interaction.channel?.lastMessage?.delete()
+            //     clearInterval(interval)
+            //     connection.destroy()
+            // })
         }
     }
 } as ICommand
